@@ -53,3 +53,6 @@ dkms.conf
 
 # CLion files
 .idea
+
+# local paths file
+paths.txt
