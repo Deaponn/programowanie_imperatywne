@@ -139,6 +139,7 @@ double gauss_simplified(double A[][SIZE], size_t n) {
     double determinant = 1;
     for (int row = 0; row < n; row++) {
         double main = A[row][row];
+        if (main == 0) return NAN;
         determinant *= main;
         for (int next = row + 1; next < n; next++) {
             double multiplier = A[next][row] / main;
