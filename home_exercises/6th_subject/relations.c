@@ -205,7 +205,20 @@ int is_total_order(pair *tab, int n) {
 };
 
 int is_connected(pair *tab, int n) {
-    return 0;
+    for (int idx = 0; idx < n; idx++) {
+        int first = (*(tab + idx)).first;
+        int second = (*(tab + idx)).second;
+        int connected_first = 0;
+        int connected_second = 0;
+        for (int jdx = 0; jdx < n; jdx++) {
+            int current_first = (*(tab + jdx)).first;
+            int current_second = (*(tab + jdx)).second;
+            if ((first == current_first || first == current_second) && current_first != current_second) connected_first = 1;
+            if ((second == current_first || second == current_second) && current_first != current_second) connected_second = 1;
+        }
+        if (connected_first == 0 || connected_second == 0) return 0;
+    }
+    return 1;
 };
 
 int find_max_elements(pair *tab, int n, int *elem) {
